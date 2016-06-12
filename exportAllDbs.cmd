@@ -1,26 +1,26 @@
 @echo off
 :: ---------------------------------------------------------
 :: Utility to export all databases from the currently
-:: instance of MySQL / MariaDB to seperate files.
+:: running instance of MySQL / MariaDB to separate files.
 ::
-:: The steps invloved are:
+:: The steps involved are:
 ::   Prep 1: Create / Clean out Dump folder
 ::   Step 1: Export All Non-System databases to Dump folder
-::   Step 2: Export the databse Users to a file
+::   Step 2: Export the database Users to a file
 ::   Step 3: Extract Permissions (grants) for each user
 ::     Note: We need to manipulate the output to ensure we
 ::     remove the double slashes (\\) that are added
 ::     in older versions of MySQL. The table name does
 ::     not contain \\ but the permissions do!
 ::
-:: Once this has completed, ther will be an sql file for
-:: each database and also an sql file for permissions.
+:: Once this has completed, there will be a sql file for
+:: each database and also a sql file for permissions.
 ::
 :: Next, start the required database and run import script.
 ::
 :: Copyright (c) 2016 Mark Larsen. All rights reserved.
 ::
-:: Last updated: 2016-06-12 13:35
+:: Last updated: 2016-06-12 14:41
 ::
 :: ---------------------------------------------------------
 set started=%date% %time%

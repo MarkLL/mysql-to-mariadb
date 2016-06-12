@@ -1,25 +1,19 @@
 @echo off
 :: ---------------------------------------------------------
 :: Utility to IMPORT all databases into the currently
-:: instance of MySQL / MariaDB from seperate files.
+:: running instance of MySQL/MariaDB from seperate files.
 ::
-:: The steps invloved are:
+:: The steps involved are:
 ::   Step 1: Ensure required files exist
-::   Step 2: Export the databse Users to a file
-::   Step 3: Extract Permissions (grants) for each user
-::     Note: We need to manipulate the output to ensure we
-::     remove the double slashes (\\) that are added
-::     in older versions of MySQL. The table name does
-::     not contain \\ but the permissions do!
+::   Step 2: Import the database from dump files
+::   Step 3: Import the databse Users and apply Permissions
 ::
-:: Once this has completed, ther will be an sql file for
-:: each database and also an sql file for permissions.
-::
-:: Next, start the required database and run import script.
+:: Once this has completed, all your databses, users and
+:: permissions are exactly as it was in the old database.
 ::
 :: Copyright (c) 2016 Mark Larsen. All rights reserved.
 ::
-:: Last updated: 2016-06-12 13:35
+:: Last updated: 2016-06-12 14:50
 ::
 :: ---------------------------------------------------------
 set started=%date% %time%
