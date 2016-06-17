@@ -6,14 +6,14 @@
 :: The steps involved are:
 ::   Step 1: Ensure required files exist
 ::   Step 2: Import the database from dump files
-::   Step 3: Import the databse Users and apply Permissions
+::   Step 3: Import the database Users and apply Permissions
 ::
-:: Once this has completed, all your databses, users and
+:: Once this has completed, all your databases, users and
 :: permissions are exactly as it was in the old database.
 ::
 :: Copyright (c) 2016 Mark Larsen. All rights reserved.
 ::
-:: Last updated: 2016-06-12 14:50
+:: Last updated: 2016-06-12 18:10
 ::
 :: ---------------------------------------------------------
 set started=%date% %time%

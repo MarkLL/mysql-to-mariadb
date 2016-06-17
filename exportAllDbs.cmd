@@ -20,7 +20,7 @@
 ::
 :: Copyright (c) 2016 Mark Larsen. All rights reserved.
 ::
-:: Last updated: 2016-06-12 14:41
+:: Last updated: 2016-06-12 18:10
 ::
 :: ---------------------------------------------------------
 set started=%date% %time%
@@ -35,8 +35,8 @@ echo Step 1. Export each database into a seperate file in a 'dump' folder...
 :: see if it exists; else clear it out
 if not exist dump\nul (md dump) else (if exist dump\*.sql del dump\*.sql)
 
-for /f "usebackq" %%i in (`.\bin\mysql.exe --user=root -p%password% --skip-column-names --batch -e "SHOW DATABASES WHERE `Database` not in ('mysql','information_schema','performance_schema','test');"`) do call :getDatabase %%i
-echo OK, all databses exported...
+for /f "usebackq" %%i in (`.\bin\mysql.exe --user=root --password=%password% --skip-column-names --batch -e "SHOW DATABASES WHERE `Database` not in ('mysql','information_schema','performance_schema','test');"`) do call :getDatabase %%i
+echo OK, all databases exported...
 echo.
 
 :step2
@@ -50,7 +50,7 @@ echo Step 3. Read in each line allUsers.txt and run mysql to get the Grant comma
 if exist zzzUsers.txt del zzzUsers.txt
 :: Need to take each line and run command to get individual user privileges
 for /f "tokens=*" %%q in (allUsers.txt) do .\bin\mysql --user=root --password=%password% --batch --skip-column-names -e"%%q">>zzzUsers.txt
-echo OK, user privileges exported... Wait, Fixing Databse names. . .
+echo OK, user privileges exported... Wait, Fixing Database names. . .
 
 :: Now take each line of that output and add a semicolon to the end.
 if exist allUsers.sql del allUsers.sql
